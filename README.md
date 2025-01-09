@@ -35,3 +35,4 @@ Prerequisites
 Visual Studio or Visual Studio Code
 SQL Server or SQLite for database
 Node.js (optional, for front-end dependencies)
+
