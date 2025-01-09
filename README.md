@@ -18,7 +18,7 @@ Folder Structure
 Controllers
 Contains all the controller classes that handle user requests and manage application flow.
 
-Models
+### Models
 Contains the application’s data models and business logic.
 
 Views
