@@ -1,0 +1,77 @@
+﻿@model IEnumerable<EmployeeViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>All Employees</h1>
+<br />
+<a asp-action="Create" class="btn btn-primary">Create New Employee</a>
+<br />
+<br />
+<form class="my-3" asp-action="Index" asp-controller="Employee">
+    <div class="row">
+        <div class="col-sm-8">
+            <input placeholder="Search By Name" name="SearchValue" class="form-control" />
+        </div>
+        <div class="col-sm-4">
+            <input type="submit" value="Search" class="btn btn-success btn-block" />
+        </div>
+    </div>
+</form>
+
+
+@if (Model?.Count() > 0)
+{
+    <table class="table table-stripped table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(M => M.Name)</th>
+                <th>@Html.DisplayNameFor(M => M.Image)</th>
+                  <th>@Html.DisplayNameFor(M => M.Address)</th>
+                <th>@Html.DisplayNameFor(M => M.Email)</th>
+                <th>@Html.DisplayNameFor(M => M.Salary)</th>
+                <th>@Html.DisplayNameFor(M => M.HireDate)</th>
+                <th>Details</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => item.Name)</td>
+                    <td >
+                        <img src="~/Files/Images/@item.ImageUrl" class="img-circle" height="40" width="40" alt="@item.Name Image"/>
+                    </td>
+                    <td>@Html.DisplayFor(m => item.Address)</td>
+                    <td>@Html.DisplayFor(m => item.Email)</td>
+                    <td>@Html.DisplayFor(m => item.Salary)</td>
+                    <td>@Html.DisplayFor(m => item.HireDate.Day)-@Html.DisplayFor(m => item.HireDate.Month)-@Html.DisplayFor(m => item.HireDate.Year)</td>
+                
+                    <td>
+                        <a class="btn btn-success" asp-action="Details" asp-route-id="@item.Id">
+                            <i class="fas fa-eye"></i> Details
+                        </a>
+                    </td> 
+                    <td>
+                        <a class="btn btn-warning" asp-action="Update" asp-route-id="@item.Id">
+                            <i class="fas fa-edit"></i> Update
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">
+                            <i class="fas fa-trash"></i> Delete
+                        </a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning">
+        <h4>No Employees Found!!</h4>
+    </div>
+}

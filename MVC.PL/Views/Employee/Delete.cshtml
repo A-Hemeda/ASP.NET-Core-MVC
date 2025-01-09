@@ -1,0 +1,43 @@
+﻿@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete Employee</h1>
+
+<div>
+
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Address"></label>
+        <input asp-for="Address" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Salary"></label>
+        <input asp-for="Salary" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Image" class="col-form-label"></label>
+        <input type="file" asp-for="Image" class="form-control" />
+    </div>
+    <div>
+        <img src="~/Files/Images/@Model.ImageUrl" class="img-circle" height="40" width="40" alt="@Model.Name Image" />
+
+    </div>
+
+    <div class="form-group">
+        <label class="col-form-label" asp-for="HireDate"></label>
+        <input asp-for="HireDate" class="form-control" readonly />
+    </div>
+
+    <br />
+    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-success">Delete</a> |
+    <a asp-action="Index" class="btn btn-light">Back To List</a>
+</div>
+
+

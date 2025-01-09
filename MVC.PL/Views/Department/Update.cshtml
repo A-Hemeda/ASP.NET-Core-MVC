@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Update";
+}﻿
+<div class="row">
+    <div class="col-6">
+        <form asp-action="Update" asp-controller="Department">
+            <partial name="PartialViews/CreateUpdatePartialView" />
+            <br />
+            <input type="submit" value="Update" class="btn btn-success" />
+            <a asp-action="Index" class="btn btn-light">Back To List</a>
+        </form>
+    </div>
+</div>

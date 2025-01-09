@@ -1,0 +1,21 @@
+﻿@model EmployeeViewModel
+
+
+<h1>Add New Employee</h1>
+<br />
+<br />
+
+<div class="row mb-3">
+    <div class="col-8">
+        <form asp-action="Create" asp-controller="Employee" enctype="multipart/form-data">
+            <partial name="PartialViews/CreateUpdatePartialView" model="@Model" />
+            <br />
+            <input type="submit" value="Add" class="btn btn-primary" />
+            <a asp-action="Index" class="btn btn-dark">Back To List</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
